@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/reset.css">
+    <title>Responsive Web</title>
+    <style>
+        /* 기본스타일 / 모바일우선 */
+        @font-face {
+            font-family:'NanumGothic';
+            src: url(./fonts/NanumGothic.ttf);
+        }
+        :root{
+            font-family:'NanumGothic';
+            font-weight:500;
+            font-size:16px;
+            color:#fff;
+            line-height:1.2;
+        }
+        .wrapper{
+            width:83.33333333333333%;
+            max-width:960px;
+            margin:0 auto; 
+            display:flex;
+            flex-flow:row wrap;
+        }
+        .item{
+            width:100%;            
+        }
+        .header{
+            background:#2ecc71;
+            display:flex;
+            flex-flow:row wrap;
+            align-items:flex-start;
+            position:relative;
+        }
+        .header .logo{
+            order:2;
+            width:100%;
+            padding:28px 0;            
+            text-align:center;
+            font-weight:700;
+            font-size:1.2em;
+        }
+        .header .btn-nav{            
+            width:30px;
+            height:30px;
+            position:absolute;
+            right:10px;
+            top:63px;
+            cursor:pointer;
+        }
+        .header .nav{
+            display:none;
+            order:4;
+            width:100%;
+            padding:1em;
+            background:#2c3e50;
+        }
+        .header .nav ul{
+            display:flex;
+            flex-flow:row wrap;
+        }
+        .header .nav ul li{
+            width:100%;
+            margin-bottom:36px;
+        }
+        .header .nav ul li:last-child{
+            margin-bottom:0;
+        }
+        .header .q-nav{
+            order:1;
+            width:100%;
+            border-bottom:1px solid #fff;
+            padding:1em 0;
+            display:flex;
+            flex-flow:row nowrap;
+            justify-content:space-around;
+        }
+        .slider{
+            height:300px;
+            background:url(./images/slider01.jpg) no-repeat center;
+        }       
+        .notice{
+            padding:36px 24px;
+        }
+        .notice h2{
+            margin-bottom:1em;
+            font-weight:700;
+            font-size:1.4em;
+            text-align:center;
+        }
+        .notice li{
+            margin-bottom:1em;
+            text-wrap:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
+        }
+        .notice li:last-child{
+            margin-bottom:0;
+        }
+        .latest{
+            background:#ffc40f;
+        }
+        .popular{
+            background:#a660c2;
+        }
+        .gallery{
+            padding:50px 40px;
+            background:#e65d5d;
+            display:flex;
+            flex-flow:row wrap;
+            justify-content:space-between;
+        }
+        .gallery article{
+            width:100%;
+            margin-bottom:4em;
+        }
+        .gallery article:last-child{
+            margin-bottom:0;
+        }
+        .rankup{
+            background:#219af7;
+        }
+        .banner{
+            background:#e6567a;
+        }
+        .social{
+            background:#ffffff;
+        }
+        .footer{
+            background:#474747;
+        }
+
+
+
+        @media (min-width:960px){
+            .header{
+                order:1;
+                position:relative;
+                height:132px;
+            }
+            .header .logo{
+                position:absolute;
+                left:0;
+                top:53px;
+                width:120px;
+                background:#2ecc71;
+            }
+            .header .btn-nav{
+                right:30px;
+                top:76px;
+            }
+            .header .nav{
+                position:absolute;
+                right:0;
+                top:100%;
+                width:40%;
+            }
+            .slider{
+                width:60%;
+                order:2;
+            }
+            .latest{
+                width:42%;
+                order:4;
+            }
+            .popular{
+                width:42%;
+                order:5;
+            }
+            .gallery{
+                width:71.61458333333333%;
+                order:7;
+            }
+            .gallery article{
+                width:calc(50% - 2em);
+                margin-bottom:0;
+                margin-right:4em;
+            }
+            .gallery article:last-child{
+                margin-right:0;
+            }
+            .rankup{
+                width:40%;
+                order:3;
+            }
+            .banner{
+                width:28.38541666666667%;
+                order:8;
+            }
+            .social{
+                width:16%;
+                order:6;
+            }
+            .footer{
+                order:9;
+            }
+        }
+
+        @media (min-width:1200px){ 
+            .header{
+                height:auto;
+            }
+            .header .logo{
+                top:0;
+            }
+            .header .btn-nav{
+                display:none;
+            }           
+            .header .nav{
+                display:block !important;
+                order:1;
+                position:static;
+                width:83%;
+                padding:0;
+                background:transparent;
+            }
+            .header .nav ul{
+                justify-content:center;
+                padding-top:18px;
+            }
+            .header .nav ul li{
+                width:auto;
+                margin:0 1.5em;                
+            }
+            .header .q-nav{
+                order:2;
+                width:17%;
+                border-bottom:none;
+            }
+            .slider{
+                width:50%;
+            }
+            .latest{
+                width:30%;
+                order:5;
+            }
+            .popular{
+                width:30%;
+                order:6;
+            }
+            .gallery{
+                width:27%;
+                padding:50px;
+                order:3;
+            }
+            .gallery article{
+                width:100%;
+                margin-bottom:4em;
+                margin-right:0;
+            }
+            .gallery article:last-child{
+                margin-bottom:0;
+            }
+            .rankup{
+                width:23%;
+                order:4;
+            }
+            .banner{
+                width:23%;
+                order:7;
+            }
+            .social{
+                width:17%;
+                order:8;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="wrapper">
+        <header class="header item">
+            <h1 class="logo">FLAT<br>DESIGN</h1>
+            <div class="btn-nav" id="btn-nav"><img src="./images/ico-nav.png" alt="navbutton"></div>
+            <nav class="nav" id="nav">
+                <ul>
+                    <li>홈</li>
+                    <li>플랫 디자인이란?</li>
+                    <li>갤러리</li>
+                    <li>문의사항</li>
+                </ul>
+            </nav>
+            <div class="q-nav">
+                <div class="img-box"><img src="./images/ico-info01.png" alt="홈"></div>
+                <div class="img-box"><img src="./images/ico-info02.png" alt="홈"></div>
+                <div class="img-box"><img src="./images/ico-info03.png" alt="홈"></div>
+                <div class="img-box"><img src="./images/ico-info04.png" alt="홈"></div>
+            </div>
+        </header>
+        <section class="sec sec01 slider item">
+        </section>
+        <section class="sec sec02 latest item notice">
+            <h2>최신글</h2>
+            <ul>
+                <li>안녕하세요. 홈페이지가 오픈되었습니다.</li>
+                <li>홈페이지 리뉴얼 일정 안내</li>
+                <li>FLAT DESIGN은 새로운 디자인 페러가임 입니다.</li>
+                <li>BLOG에서 다양한 정보를 확인하세요.</li>
+                <li>저는 누굴까요?</li>
+            </ul>
+        </section>
+        <section class="sec sec03 popular item notice">
+            <h2>인기글</h2>
+            <ul>
+                <li>안녕하세요. 홈페이지가 오픈되었습니다.</li>
+                <li>홈페이지 리뉴얼 일정 안내</li>
+                <li>FLAT DESIGN은 새로운 디자인 페러가임 입니다.</li>
+                <li>BLOG에서 다양한 정보를 확인하세요.</li>
+                <li>저는 누굴까요?</li>
+            </ul>
+        </section>
+        <section class="sec sec04 gallery item">
+            <article>
+                <div class="img-box"><img src="./images/gallery01.jpg" alt="gall01"></div>
+                <h2>디자인 트렌드 플랫</h2>
+            </article>
+            <article>
+                <div class="img-box"><img src="./images/gallery02.jpg" alt="gall02"></div>
+                <h2>원색이 포인트 플랫</h2>
+            </article>
+        </section>
+        <section class="sec sec05 rankup item">랭크</section>
+        <section class="sec sec06 banner item">베너</section>
+        <section class="sec sec07 social item">쇼셜</section>
+        <footer class="footer item">푸터</footer>
+    </section>
+
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        $('#btn-nav').click(function(){
+            $('#nav').slideToggle();
+        })
+    </script>
+</body>
+</html>
